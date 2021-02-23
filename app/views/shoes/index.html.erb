@@ -5,3 +5,5 @@
     <li> <%= link_to shoe.name, shoe_path(shoe) %> | Year: <%= shoe.year %> | Price per day: <%= shoe.price %> | Size: <%= shoe.size %> | Location: <%= shoe.location %> </li>
   <% end %>
 </ul>
+
+<%= link_to "Add a shoe", new_shoe_path %>

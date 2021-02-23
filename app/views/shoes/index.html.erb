@@ -2,7 +2,7 @@
 
 <ul>
   <% @shoes.each do |shoe| %>
-    <li> <%= link_to shoe.name, shoe_path(shoe) %> | Year: <%= shoe.year %> | Price per day: <%= shoe.price %> | Size: <%= shoe.size %> | Location: <%= shoe.location %> </li>
+    <%= render 'shared/card', item: shoe %>
   <% end %>
 </ul>
 

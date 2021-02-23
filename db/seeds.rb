@@ -6,4 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Shoe.create([{name: "Air Jordan 3000", size: 42, price: 300, brand: "Nike", location: "Berlin" }, {name: "Dunkin", size: 45, price: 280, brand: "New Balance", location: "Frankfurt" }, {name: "Air Jordan 2567", size: 41, price: 350, brand: "Nike", location: "Stuttgart" }])
+Shoe.destroy_all
+Shoe.create(name: "Air Jordan 3000", size: 42, price: 300, brand: "Nike", location: "Berlin", year: 1988)
+# Shoe.create([{name: "Air Jordan 3000", size: 42, price: 300, brand: "Nike", location: "Berlin" }, {name: "Dunkin", size: 45, price: 280, brand: "New Balance", location: "Frankfurt" }, {name: "Air Jordan 2567", size: 41, price: 350, brand: "Nike", location: "Stuttgart" }])

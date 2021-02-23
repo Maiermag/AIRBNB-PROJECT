@@ -1,2 +1,7 @@
-<h1>Shoes#index</h1>
-<p>Find me in app/views/shoes/index.html.erb</p>
+<h1>These are all shoes</h1>
+
+<ul>
+  <% @shoes.each do |shoe| %>
+    <li> <%= link_to shoe.name, shoe_path(shoe) %> | Year: <%= shoe.year %> | Price per day: <%= shoe.price %> | Size: <%= shoe.size %> | Location: <%= shoe.location %> </li>
+  <% end %>
+</ul>

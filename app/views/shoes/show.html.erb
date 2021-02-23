@@ -1,0 +1,16 @@
+<h1> <%= @shoe.name %> </h1>
+
+<ul>
+    <li> Name: <%= @shoe.name %> </li>
+    <li> Year: <%= @shoe.brand %> </li>
+    <li> Price: <%= @shoe.price %> </li>
+    <li> Year: <%= @shoe.year %> </li>
+    <li> Location: <%= @shoe.location %> </li>
+    <li> Seller ID: <%= @shoe.user_id %> </li>
+</ul>
+
+<%= link_to "Edit", edit_shoe_path %>
+
+<%= link_to "Rent"%>
+
+<%= link_to "Back to all shoes", shoes_path %>

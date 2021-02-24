@@ -4,5 +4,13 @@
 <div class="banner">
   <%= render 'shared/searchbar' %>
 </div>
+<div class="container">
+  <div class="shoe-cards">
+    <% @shoes.each do |shoe| %>
+      <%= render 'shared/card', item: shoe %>
+    <% end %>
+  </div>
+</div>
+
 
 <%= link_to "View all available shoes", shoes_path %>

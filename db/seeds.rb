@@ -17,6 +17,9 @@ user3 = User.create!(first_name: "Tom", last_name: "Bell", email: "Tom@example.c
 shoe1 = Shoe.create!(name: "Air Jordan 3000", size: 42, price: 300, brand: "Nike", location: "Berlin", year: 1988, user: user)
 shoe2 = Shoe.create!(name: "Dunkin", size: 45, price: 280, brand: "New Balance", location: "Frankfurt", year: 1970, user: user2)
 shoe3 = Shoe.create!(name: "Air Jordan 2567", size: 41, price: 350, brand: "Nike", location: "Stuttgart", year: 1972, user: user3)
+shoe3 = Shoe.create!(name: "Air Jordan 2568", size: 41, price: 350, brand: "Nike", location: "Stuttgart", year: 1972, user: user3)
+shoe3 = Shoe.create!(name: "Air Jordan 2569", size: 41, price: 350, brand: "Nike", location: "Stuttgart", year: 1972, user: user3)
+shoe3 = Shoe.create!(name: "Air Jordan 2570", size: 41, price: 350, brand: "Nike", location: "Stuttgart", year: 1972, user: user3)
 
 Booking.create!(start_date: , end_date: , confirmed: false, user: user, shoe: shoe3)
 Booking.create!(start_date: , end_date: , confirmed: false, user: user, shoe: shoe2)

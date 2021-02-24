@@ -1,23 +1,26 @@
-<h1> <%= @shoe.name %> </h1>
 
-<%= cl_image_tag @shoe.photo.key, height: 300, crop: :fill if @shoe.photo.attached?%>
 
-<ul>
-    <li> Name: <%= @shoe.name %> </li>
-    <li> Brand: <%= @shoe.brand %> </li>
-    <li> Price: <%= @shoe.price %> </li>
-    <li> Year: <%= @shoe.year %> </li>
-    <li> Location: <%= @shoe.location %> </li>
-    <li> Seller ID: <%= @shoe.user_id %> </li>
-</ul>
+<div class="container">
+  <h1> <%= @shoe.name %> </h1>
+  <div> <%= cl_image_tag @shoe.photo.key, height: 300, crop: :fill if @shoe.photo.attached?%> </div>
 
-<%= link_to "Edit", edit_shoe_path %>
+  <ul>
+      <li> Name: <%= @shoe.name %> </li>
+      <li> Brand: <%= @shoe.brand %> </li>
+      <li> Price: <%= @shoe.price %> </li>
+      <li> Year: <%= @shoe.year %> </li>
+      <li> Location: <%= @shoe.location %> </li>
+      <li> Seller ID: <%= @shoe.user_id %> </li>
+  </ul>
 
-<%= link_to "Rent"%>
+  <%= link_to "Edit", edit_shoe_path %>
 
-<%= link_to "Delete",
-            shoe_path(@shoe),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+  <%= link_to "Rent"%>
 
-<%= link_to "Back to all shoes", shoes_path %>
+  <%= link_to "Delete",
+              shoe_path(@shoe),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+
+  <%= link_to "Back to all shoes", shoes_path %>
+</div>

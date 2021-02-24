@@ -97,7 +97,7 @@
 // input { /*the 3 textfields*/
 //     margin-top: 10px;
 //     order: 0;
-//     align-self: auto;  
+//     align-self: auto;
 // }
 
 // select {
@@ -106,7 +106,7 @@
 //   border-color:white;
 //   margin-top: 14px;
 //   order: 0;
-//   align-self: auto;  
+//   align-self: auto;
 // }
 
 // .search {
@@ -159,4 +159,11 @@ img {
 
 .title {
   padding-top: 5px;
+}
+
+
+.shoe-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:15px;
 }

@@ -1,6 +1,6 @@
 <h1> <%= @shoe.name %> </h1>
 
-<%= cl_image_tag @shoe.photo.key, height: 300, crop: :fill %>
+<%= cl_image_tag @shoe.photo.key, height: 300, crop: :fill if @shoe.photo.attached?%>
 
 <ul>
     <li> Name: <%= @shoe.name %> </li>

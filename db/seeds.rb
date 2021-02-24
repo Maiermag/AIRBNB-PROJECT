@@ -18,6 +18,6 @@ shoe1 = Shoe.create!(name: "Air Jordan 3000", size: 42, price: 300, brand: "Nike
 shoe2 = Shoe.create!(name: "Dunkin", size: 45, price: 280, brand: "New Balance", location: "Frankfurt", year: 1970, user: user2)
 shoe3 = Shoe.create!(name: "Air Jordan 2567", size: 41, price: 350, brand: "Nike", location: "Stuttgart", year: 1972, user: user3)
 
-Booking.create!(start_date: , end_date: , confirmed: false, user: user, shoe: shoe3)
-Booking.create!(start_date: , end_date: , confirmed: false, user: user, shoe: shoe2)
+Booking.create!(start_date: "20200524", end_date: "20200624", confirmed: true, user: user, shoe: shoe3)
+Booking.create!(start_date: "20200524", end_date: "20200624", confirmed: true, user: user, shoe: shoe2)
 

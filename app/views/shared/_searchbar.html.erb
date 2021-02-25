@@ -1,10 +1,33 @@
+
 <div class="container">
-      <form>
+  <div class="wrapper">
+<!--     <div class="search-container"> -->
+
+    <%= form_tag shoes_path, method: :get do %>
+      <%= fields_for :query do |ff| %>
+        <%= ff.text_field :brand,
+          class: "form-control",
+          placeholder: "Find by brand"
+        %>
+        <%= ff.text_field :size,
+          class: "form-control",
+          placeholder: "Find by size"
+        %>
+        <% end %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+<!--     </div> -->
+  </div>
+</div>
+
+<!--
+<div class="container">
+      <form action="" method="get">
         <div class="wrapper">
           <div class="search-container">
-            <input type="text" class="search" placeholder="Select brand">
-            <input type="number" class="search" placeholder="Select size">
-            <!-- <select id="selectNumber">
+            <input name="query[brand]" type="text" class="search" placeholder="Search by brand">
+            <input name="query[size]" type="number" class="search" placeholder="Search by size">
+            <select id="selectNumber">
               <option value="36">36</option>
               <option value="37">37</option>
               <option value="38">38</option>
@@ -18,12 +41,12 @@
               <option value="46">46</option>
               <option value="47">47</option>
               <option value="48">48</option>
-            </select> -->
+            </select>
             <input type="date" class="date-from" placeholder="Timespan">
             <input type="date" class="date-to" placeholder="Timespan">
-            <input type="text" class="search" placeholder="Price up to ..€">
+         <input type="text" class="search" placeholder="Price up to ..€">
             <button type="submit" class="button">Search</button>
           </div>
         </div>
       </form>
-</div>
+</div> -->

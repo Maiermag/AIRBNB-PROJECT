@@ -2,7 +2,17 @@ class ShoesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @shoes = Shoe.all
+    if params[:query].present?
+      if params[:query][:brand].present? && params[:query][:size].present?
+        @shoes = Shoe.where(brand: params[:query][:brand]).where(size: params[:query][:size])
+      elsif params[:query][:brand].present?
+        @shoes = Shoe.where(brand: params[:query][:brand])
+      elsif params[:query][:size].present?
+        @shoes = Shoe.where(size: params[:query][:size])
+      end
+    else
+      @shoes = Shoe.all
+    end
   end
 
   def show

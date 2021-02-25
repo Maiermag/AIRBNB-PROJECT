@@ -1,5 +1,5 @@
     <h1> Manage your bookings </h1>
-    <% if @user.shoes.bookings.empty? %>
+    <% if current_user.shoes.bookings.empty? %>
       <%= "no bookings" %>
       <% else %>
         <% @shoe.bookings.each do | booking |%>

@@ -1,17 +1,43 @@
 
+<div class="show-card-container">
+  <div class="center">
+    <h5 class="show-name"><h1> <%= @shoe.name %> </h1></h5>
+    <p class="show-year"><%= @shoe.year %> </li></p>
+  </div>
+  <div class="show-image">
+  <%= cl_image_tag @shoe.photo.key, height: 300, crop: :fill if @shoe.photo.attached?%>
+  </div>
+  <div class="show-price-size">
+    <div class="center">
+      <h3 class="show-price"><%= @shoe.price %>€ / day</h3>
+      <p class="show-size">Size:</p><h3><%= @shoe.size %></h3>
+    </div>
+  </div>
+  <div class="show-location-brand-links">
+    <div class="d-flex" id="show-location-brand">
+      <h4 class="show-location"><%= @shoe.location %></h4>
+      <h4 class="show-brand"><%= @shoe.brand %></h4>
+    </div>
+    <div class="d-flex justify-content-around links center">
+      <button type="button" class="btn btn-outline-dark"><%= link_to "Edit", edit_shoe_path, class:"added-link"%></button>
+      <button type="button" class="btn btn-outline-dark"><%= link_to "Rent", "#", class:"added-link"%></button>
+      <button type="button" class="btn btn-outline-dark"><%= link_to "Delete", 
+                  shoe_path(@shoe), 
+                  class:"added-link",
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></button>
+      <button type="button" class="btn btn-outline-dark"><%= link_to "Back to all shoes", shoes_path, class:"added-link" %></button>
+      
+    </div>
+  </div>
+</div>
 
-<div class="container">
-  <h1> <%= @shoe.name %> </h1>
-  <div> <%= cl_image_tag @shoe.photo.key, height: 300, crop: :fill if @shoe.photo.attached?%> </div>
 
-  <ul>
-      <li> Name: <%= @shoe.name %> </li>
-      <li> Brand: <%= @shoe.brand %> </li>
-      <li> Price: <%= @shoe.price %> </li>
-      <li> Year: <%= @shoe.year %> </li>
-      <li> Location: <%= @shoe.location %> </li>
-      <li> Seller ID: <%= @shoe.user_id %> </li>
-  </ul>
+
+
+
+
+
 
   <%= link_to "Edit", edit_shoe_path %>
   <%= link_to "Delete",
@@ -45,3 +71,4 @@
     <% end%>
 
 </div>
+

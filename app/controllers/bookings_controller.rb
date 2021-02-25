@@ -13,11 +13,14 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to shoe_path(@shoe)
     else
-      render :show
+      redirect_to shoe_path(@shoe)
+    end
   end
 
   def destroy
-
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to shoe_path(@booking.shoe)
   end
 
   private

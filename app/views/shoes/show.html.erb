@@ -14,6 +14,16 @@
   </ul>
 
 
+<div id='shoe-booking-dates' data-unavailable="<%= @shoe.unavailable_dates.to_json %>">
+    <% if current_user.id != @shoe.user_id  %>
+       <%= simple_form_for([@shoe, @booking]) do |f| %>
+           <%= f.input :start_date, as: :string, type: :text %>
+           <%= f.input :end_date, as: :string, type: :text %>
+           <%= f.submit "Confirm", class: "btn btn-primary" %>
+        <% end %>
+    <% end %>
+ </div>
+
 <h1> Make your booking </h1>
   <%= simple_form_for [ @shoe, @booking ] do |f| %>
     <%= f.input :start_date %>

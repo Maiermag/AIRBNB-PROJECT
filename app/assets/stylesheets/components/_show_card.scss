@@ -1,16 +1,45 @@
+.grid-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap:0px;
+}
+
 .show-card-container {
   width: 390px;
-  height: 520px;
-  border: 1px solid grey;
+  height: 480px;
   margin: 30px auto;
-  border-radius: 25px;
   background-color: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);
+}
+
+.bookings {
+  margin: 30px auto;
+  box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);
+  border-radius: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  width: 90%;
+}
+.manage-bookings {
+  margin: 30px auto;
+  box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);
+  border-radius: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: white;
+  width: 90%;
+}
+
+.manage-bookings h3 {
+  margin-bottom: 35px;
 }
 
 .show-image {
   height: 300px;
-  width: 80%;
-  margin-left: 45px;
+  width: 100%;
 }
 
 .show-price-size {
@@ -18,22 +47,72 @@
 }
 
 #show-location-brand {
-  background-color: black;
-  color: white;
+  color: black;
   padding: 10px 15px;
 }
 
 .links {
-  background-color: black;
-  color: white;
+  background-color: white;
   padding-top: 15px;
   padding-bottom: 15px;
+  border-radius: 5px;
 }
 
-.show-location-brand-links {
+.corner-left-button {
+  color: black;
+  text-decoration: underline;
+}
+
+.corner-left-button:hover {
   border: 1px solid black;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 0 5px;
 }
 
-.added-link {
-  color: white;
+#corner-left-button {
+  padding: 10px 10px;
+  color: black;
 }
+
+.added-link-edit {
+  color: black;
+}
+
+.added-link-edit:hover {
+  text-decoration: none;
+}
+
+.added-link-delete {
+  color: black;
+}
+
+.added-link-delete:hover {
+  text-decoration: none;
+}
+
+.edit-container {
+  border: 0.1px solid rgba(60, 60, 60, 0.3);
+  width: 45%;
+  border-radius: 25px;
+  padding-top: 5px;
+  box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);
+}
+
+.delete-container {
+  border: 0.1px solid rgba(60, 60, 60, 0.3);
+  width: 45%;
+  border-radius: 25px;
+  padding-top: 5px;
+  box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);
+}
+
+.dark {
+}
+
+
+
+
+
+
+

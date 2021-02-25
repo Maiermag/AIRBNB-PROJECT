@@ -11,32 +11,37 @@ class ShoesController < ApplicationController
         @shoes = Shoe.where(size: params[:query][:size])
       end
     else
-      @shoes = Shoe.all
+      @shoes = policy_scope(Shoe).order(created_at: :desc)
     end
   end
 
   def show
     @shoe = Shoe.find(params[:id])
+    authorize @shoe
     @booking = Booking.new
   end
 
   def edit
     @shoe = Shoe.find(params[:id])
+    authorize @shoe
     # redirect_to shoe_path(@shoe), notice: 'updated'
   end
 
   def update
     @shoe = Shoe.find(params[:id])
+    authorize @shoe
     @shoe.update(strong_params)
     redirect_to shoe_path(@shoe)
   end
 
   def new
     @shoe = Shoe.new
+    authorize @shoe
   end
 
   def create
     @shoe = Shoe.new(strong_params)
+    authorize @shoe
     @shoe.user = current_user
     if @shoe.save
       redirect_to shoe_path(@shoe), notice: 'new shoe created'
@@ -47,6 +52,7 @@ class ShoesController < ApplicationController
 
   def destroy
     @shoe = Shoe.find(params[:id])
+    authorize @shoe
     @shoe.destroy
     redirect_to shoes_path, notice: 'shoe deleted'
   end

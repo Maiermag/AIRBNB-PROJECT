@@ -7,6 +7,7 @@ class ShoesController < ApplicationController
 
   def show
     @shoe = Shoe.find(params[:id])
+    @booking = Booking.new
   end
 
   def edit

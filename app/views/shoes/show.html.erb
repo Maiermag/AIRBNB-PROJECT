@@ -13,9 +13,15 @@
       <li> Seller ID: <%= @shoe.user_id %> </li>
   </ul>
 
-  <%= link_to "Edit", edit_shoe_path %>
 
-  <%= link_to "Rent"%>
+<h1> Make your booking </h1>
+  <%= simple_form_for [ @shoe, @booking ] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Confirm", class: "btn btn-primary" %>
+<% end %>
+
+  <%= link_to "Edit", edit_shoe_path %>
 
   <%= link_to "Delete",
               shoe_path(@shoe),

@@ -6,5 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @shoes = Shoe.where(user: current_user)
+    # @bookings = Booking.where(Shoe.where(user: current_user))
   end
 end

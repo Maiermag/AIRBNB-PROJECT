@@ -15,6 +15,7 @@
         <p class="show-size">Size:</p><h3><%= @shoe.size %></h3>
       </div>
     </div>
+
     <div>
       <div class="d-flex justify-content-around" id="show-location-brand">
         <h4 class="show-location"><%= @shoe.location %></h4>
@@ -34,6 +35,65 @@
       </div>
     </div>
   </div>
+
+    <div class="d-flex justify-content-around links center">
+      <% if policy(@shoe).edit? %>
+        <button type="button" class="btn btn-outline-dark"><%= link_to "Edit", edit_shoe_path, class:"added-link"%></button>
+      <% end %>
+      <% if @shoe.user != current_user %>
+        <button type="button" class="btn btn-outline-dark"><%= link_to "Rent", "#", class:"added-link"%></button>
+      <% end %>
+      <% if policy(@shoe).destroy? %>
+        <button type="button" class="btn btn-outline-dark"><%= link_to "Delete",
+                  shoe_path(@shoe),
+                  class:"added-link",
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></button>
+      <% end %>
+      <button type="button" class="btn btn-outline-dark"><%= link_to "Back to all shoes", shoes_path, class:"added-link" %></button>
+
+    </div>
+  </div>
+</div>
+
+
+  <%  if current_user %>
+        <div class="d-flex flex-column justify-content-center align-items-center" style="width: 400px; margin: 0 auto;">
+          <%= simple_form_for [@shoe, @booking] do |f| %>
+            <%= f.input :start_date, as: :string, label: "Start Date", input_html: { id: "start_date" } %>
+            <%= f.input :end_date, as: :string, label: "End Date", input_html: { id: "end_date" } %>
+            <%= f.button :submit, "Book", class: "btn btn-flat datepicker-btn", style: 'width:100%' %>
+          <% end %>
+        </div>
+  <% end %>
+
+
+
+  <%= link_to "Edit", edit_shoe_path %>
+  <%= link_to "Delete",
+              shoe_path(@shoe),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+
+  <%= link_to "Back to all shoes", shoes_path %>
+
+
+
+
+  <h1> Manage your bookings </h1>
+    <% if @shoe.bookings.empty? %>
+      <p> <%= "no bookings to display" %> </p>
+      <% else %>
+        <% @shoe.bookings.each do | booking |%>
+          <li class="list-group-item">
+            booked from: <%= booking.start_date %> until <%= booking.end_date %>
+            <%= link_to "Remove",
+                            booking_path(booking),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+          </li>
+      <% end%>
+    <% end%>
 
   <div class="manage-and-bookings">
     <div class="bookings center">

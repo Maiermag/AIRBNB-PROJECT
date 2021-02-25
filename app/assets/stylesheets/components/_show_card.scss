@@ -1,0 +1,39 @@
+.show-card-container {
+  width: 390px;
+  height: 520px;
+  border: 1px solid grey;
+  margin: 30px auto;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.show-image {
+  height: 300px;
+  width: 80%;
+  margin-left: 45px;
+}
+
+.show-price-size {
+  margin-top: -130px;
+}
+
+#show-location-brand {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+}
+
+.links {
+  background-color: black;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.show-location-brand-links {
+  border: 1px solid black;
+}
+
+.added-link {
+  color: white;
+}

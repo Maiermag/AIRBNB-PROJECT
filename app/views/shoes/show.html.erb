@@ -57,7 +57,7 @@
 
   <h1> Manage your bookings </h1>
     <% if @shoe.bookings.empty? %>
-      <%= "no bookings" %>
+      <p> <%= "no bookings to display" %> </p>
       <% else %>
         <% @shoe.bookings.each do | booking |%>
           <li class="list-group-item">

@@ -1,1 +1,14 @@
-dashboard.html.erb
+    <h1> Manage your bookings </h1>
+    <% if @user.shoes.bookings.empty? %>
+      <%= "no bookings" %>
+      <% else %>
+        <% @shoe.bookings.each do | booking |%>
+          <li class="list-group-item">
+            booked from: <%= booking.start_date %> until <%= booking.end_date %>
+            <%= link_to "Remove",
+                            booking_path(:booking_id),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+          </li>
+      <% end%>
+    <% end%>

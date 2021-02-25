@@ -1,22 +1,30 @@
 
 <div class="container">
   <div class="wrapper">
-<!--     <div class="search-container"> -->
+    <div class="search-container">
 
-    <%= form_tag shoes_path, method: :get do %>
-      <%= fields_for :query do |ff| %>
-        <%= ff.text_field :brand,
-          class: "form-control",
-          placeholder: "Find by brand"
-        %>
-        <%= ff.text_field :size,
-          class: "form-control",
-          placeholder: "Find by size"
-        %>
-        <% end %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-<!--     </div> -->
+      <div class="search-field">
+            <div class="search-field-detail">
+              <%= form_tag shoes_path, method: :get do %>
+              <%= fields_for :query do |ff| %>
+              <%= ff.text_field :brand,
+                class: "form-control",
+                placeholder: "Search by brand"
+              %>
+            </div>
+            <div class="search-field-detail">
+              <%= ff.text_field :size,
+              class: "form-control",
+              placeholder: "Search by size"
+            %>
+            </div>
+            <% end %>
+      </div>
+
+        <%= submit_tag "Search", class: "button" %>
+
+      <% end %>
+    </div>
   </div>
 </div>
 

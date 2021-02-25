@@ -1,17 +1,19 @@
 class BookingsController < ApplicationController
 
-  def new
-    @shoe = Shoe.find(params[:shoe_id])
-    @booking = Booking.new
-  end
+  # def new
+  #   @shoe = Shoe.find(params[:shoe_id])
+  #   @booking = Booking.new
+  # end
 
   def create
     @booking = Booking.new(booking_params)
     @shoe = Shoe.find(params[:shoe_id])
     @booking.shoe = @shoe
     @booking.user = current_user
-    @booking.save
-    redirect_to shoe_path(@shoe)
+    if @booking.save
+      redirect_to shoe_path(@shoe)
+    else
+      render :show
   end
 
   def destroy

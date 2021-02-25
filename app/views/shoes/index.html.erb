@@ -1,7 +1,9 @@
-<h1>These are all shoes</h1>
-<div class="shoe-cards">
-  <% @shoes.each do |shoe| %>
-    <%= render 'shared/card', item: shoe %>
-  <% end %>
+
+<div class="container">
+  <div class="shoe-cards">
+    <% @shoes.each do |shoe| %>
+      <%= render 'shared/card', item: shoe %>
+    <% end %>
+  </div>
 </div>
-<%= link_to "Add a shoe", new_shoe_path %>
+

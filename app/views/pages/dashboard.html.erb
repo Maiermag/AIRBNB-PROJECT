@@ -1,14 +1,14 @@
-    <h1> Manage your bookings </h1>
-    <% if current_user.shoes.bookings.empty? %>
-      <%= "no bookings" %>
-      <% else %>
-        <% @shoe.bookings.each do | booking |%>
-          <li class="list-group-item">
-            booked from: <%= booking.start_date %> until <%= booking.end_date %>
-            <%= link_to "Remove",
-                            booking_path(:booking_id),
-                            method: :delete,
-                            data: { confirm: "Are you sure?" } %>
-          </li>
-      <% end%>
-    <% end%>
+<h1> My dashboard </h1>
+
+  <h2> My offers </h2>
+
+    <% if user.shoes.empty? %>
+      <%= "no offers" %>
+    <% else %>
+        <% current_user.shoes.each do | shoe |%>
+            <%= render 'shared/card', item: shoe %>
+    <% end %>
+
+  <h2> My bookings </h2>
+
+  <h2> Shoes I booked </h2>

@@ -1,14 +1,49 @@
-<h1> My dashboard </h1>
 
-  <h2> My offers </h2>
+<div class="container">
+  <h1> My dashboard </h1>
 
-    <% if user.shoes.empty? %>
-      <%= "no offers" %>
-    <% else %>
-        <% current_user.shoes.each do | shoe |%>
-            <%= render 'shared/card', item: shoe %>
-    <% end %>
+    <h2> My offers: </h2>
 
-  <h2> My bookings </h2>
+      <% if current_user.shoes.empty? %>
+        <%= "no offers" %>
+        <% else %>
+          <% current_user.shoes.each do | shoe |%>
+              <%= render 'shared/card', item: shoe %>
+        <% end %>
+      <% end %>
 
-  <h2> Shoes I booked </h2>
+    <h2> Booking requests: </h2>
+
+     <% if current_user.bookings.empty? %>
+        <%= "no requests" %>
+        <% else %>
+        <% current_user.shoes.each do |shoe| %>
+          <% shoe.bookings.each do | booking |%>
+            <li class="list-group-item">
+              <%= link_to booking.shoe.name, "#"%> booked from: <%= booking.start_date %> until <%= booking.end_date %>
+              <%= link_to "Cancel",
+                              booking_path(booking),
+                              method: :delete,
+                              data: { confirm: "Are you sure?" } %>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+    <h2> Shoes I booked: </h2>
+
+     <% if current_user.bookings.empty? %>
+        <%= "no bookings" %>
+        <% else %>
+          <% current_user.bookings.each do | booking |%>
+          <li class="list-group-item">
+            <%= link_to booking.shoe.name, "#"%> booked from: <%= booking.start_date %> until <%= booking.end_date %>
+            <%= link_to "Cancel",
+                            booking_path(booking),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+          </li>
+        <% end %>
+      <% end %>
+
+</div>

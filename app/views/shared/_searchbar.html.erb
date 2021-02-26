@@ -2,28 +2,17 @@
 <div class="container">
   <div class="wrapper">
     <div class="search-container">
-
-      <div class="search-field">
-            <div class="search-field-detail">
-              <%= form_tag shoes_path, method: :get do %>
-              <%= fields_for :query do |ff| %>
+          <%= form_tag shoes_path, method: :get, class: "d-flex justify-center align-items-center" do %>
+            <%= fields_for :query do |ff| %>
               <%= ff.text_field :brand,
-                class: "form-control",
-                placeholder: "Search by brand"
-              %>
-            </div>
-            <div class="search-field-detail">
+                class: "form-control search-field-detail",
+                placeholder: "Search by brand" %>
               <%= ff.text_field :size,
-              class: "form-control",
-              placeholder: "Search by size"
-            %>
-            </div>
+              class: "form-control search-field-detail",
+              placeholder: "Search by size" %>
             <% end %>
-      </div>
-
-        <%= submit_tag "Search", class: "button" %>
-
-      <% end %>
+            <%= submit_tag "Search", class: "button" %>
+        <% end %>
     </div>
   </div>
 </div>

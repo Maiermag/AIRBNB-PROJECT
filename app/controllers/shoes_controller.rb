@@ -4,11 +4,11 @@ class ShoesController < ApplicationController
   def index
     if params[:query].present?
       if params[:query][:brand].present? && params[:query][:size].present?
-        @shoes = Shoe.where(brand: params[:query][:brand]).where(size: params[:query][:size])
+        @shoes = policy_scope(Shoe).where(brand: params[:query][:brand]).where(size: params[:query][:size])
       elsif params[:query][:brand].present?
-        @shoes = Shoe.where(brand: params[:query][:brand])
+        @shoes = policy_scope(Shoe).where(brand: params[:query][:brand])
       elsif params[:query][:size].present?
-        @shoes = Shoe.where(size: params[:query][:size])
+        @shoes = policy_scope(Shoe).where(size: params[:query][:size])
       end
     else
       @shoes = policy_scope(Shoe).order(created_at: :desc)

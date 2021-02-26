@@ -21,11 +21,13 @@
 import flatpickr from "flatpickr";
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 const initFlatpickr = () => {
-  flatpickr(".datepicker",{
-    mode: "range",
+  flatpickr("#start_date",{
     altInputClass: "invisible",
-    minDate: "today",
-    inline: true,
+    minDate: "today"
+  });
+  flatpickr("#end_date",{
+    altInputClass: "invisible",
+    minDate: "today"
   });
 }
 export { initFlatpickr }

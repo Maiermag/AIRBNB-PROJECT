@@ -10,11 +10,8 @@ class BookingsController < ApplicationController
     @shoe = Shoe.find(params[:shoe_id])
     @booking.shoe = @shoe
     @booking.user = current_user
-    if @booking.save
-      redirect_to shoe_path(@shoe)
-    else
-      redirect_to shoe_path(@shoe)
-    end
+    @booking.save!
+    redirect_to shoe_path(@shoe)
   end
 
   def destroy

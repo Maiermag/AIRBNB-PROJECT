@@ -1,6 +1,7 @@
 
-<button type="button" class="btn btn-outline-dark"><%= link_to "Back to all shoes", shoes_path, class:"added-link" %></button>
+
 <div class="container">
+  <button type="button" class="btn btn-outline-dark my-3"><%= link_to "Back to all shoes", shoes_path, class:"added-link" %></button>
   <div class="d-flex">
     <div class="show-card-container col-7">
 
@@ -29,9 +30,7 @@
             <h5 class="edit-button"><%= link_to "Edit", edit_shoe_path, class:"added-link-edit"%></h5>
           </div>
         <% end %>
-        <% if @shoe.user != current_user %>
-          <button type="button" class="btn btn-outline-dark"><%= link_to "Rent", "#", class: "added-link"%></button>
-        <% end %>
+
         <% if policy(@shoe).destroy? %>
           <div class="delete-container">
             <h5><%= link_to "Delete",
@@ -49,11 +48,17 @@
         <%= simple_form_for [@shoe, @booking] do |f| %>
         <div class="booking-range">
           <%= f.input :start_date,
-                      label: "Select Your Dates",
-                      as: "string",
-                      input_html: { type: "hidden text-center",
+                      label: "Start Date",
+                      as: :string,
+                      input_html: { type: "hidden",
                                     class: "datepicker",
                                     id: "start_date" } %>
+          <%= f.input :end_date,
+                      label: "End Date",
+                      as: :string,
+                      input_html: { type: "hidden",
+                                    class: "datepicker",
+                                    id: "end_date" } %>
           <%= f.button :submit, "Book", class: "btn btn-flat datepicker-btn", style: 'width:100%' %>
         </div>
         <% end %>

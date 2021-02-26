@@ -1,7 +1,9 @@
+
 <button type="button" class="btn btn-outline-dark"><%= link_to "Back to all shoes", shoes_path, class:"added-link" %></button>
 <div class="container">
   <div class="d-flex">
     <div class="show-card-container col-7">
+
     <div class="center">
       <h5 class="show-name"><h1> <%= @shoe.name %> </h1></h5>
       <p class="show-year"><%= @shoe.year %> </li></p>
@@ -21,6 +23,7 @@
         <h4 class="show-brand"><%= @shoe.brand %></h4>
       </div>
       <div class="d-flex justify-content-around links center">
+
         <% if policy(@shoe).edit? %>
           <div class="edit-container">
             <h5 class="edit-button"><%= link_to "Edit", edit_shoe_path, class:"added-link-edit"%></h5>

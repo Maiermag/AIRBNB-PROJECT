@@ -3,13 +3,14 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 
 
 const initFlatpickr = () => {
-  flatpickr("#start_date",{
-    altInput: true,
-    mode: "range",
+  flatpickr(".datepicker",{
+    // altInput: true,
+    // mode: "range",
+    altInputClass: "invisible",
     minDate: "today",
-    position: "left",
+    position: "above",
     inline: true,
-    "plugins": [new rangePlugin({ input: "#end_date"})]
+    // "plugins": [new rangePlugin({ input: "#end_date"})]
   });
 }
 

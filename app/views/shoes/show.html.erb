@@ -1,43 +1,61 @@
+<h6 id="corner-left-button"><%= link_to "Back to all shoes", shoes_path, class:"corner-left-button" %></h6>
+<div class="grid-container">
 
-<div class="show-card-container">
-  <div class="center">
-    <h5 class="show-name"><h1> <%= @shoe.name %> </h1></h5>
-    <p class="show-year"><%= @shoe.year %> </li></p>
-  </div>
-  <div class="show-image">
-  <%= cl_image_tag @shoe.photo.key, height: 300, crop: :fill if @shoe.photo.attached?%>
-  </div>
-  <div class="show-price-size">
+  <div class="show-card-container">
     <div class="center">
-      <h3 class="show-price"><%= @shoe.price %>€ / day</h3>
-      <p class="show-size">Size:</p><h3><%= @shoe.size %></h3>
+      <h5 class="show-name"><h1> <%= @shoe.name %> </h1></h5>
+      <p class="show-year"><%= @shoe.year %> </li></p>
+    </div>
+    <div class="show-image">
+    <%= cl_image_tag @shoe.photo.key, height: 300, crop: :fill if @shoe.photo.attached?%>
+    </div>
+    <div class="show-price-size">
+      <div class="center">
+        <h3 class="show-price"><%= @shoe.price %>€ / day</h3>
+        <p class="show-size">Size:</p><h3><%= @shoe.size %></h3>
+      </div>
+    </div>
+
+    <div>
+      <div class="d-flex justify-content-around" id="show-location-brand">
+        <h4 class="show-location"><%= @shoe.location %></h4>
+        <h4 class="show-brand"><%= @shoe.brand %></h4>
+      </div>
+      <div class="d-flex justify-content-around links center">
+        <div class="edit-container">
+          <h5 class="edit-button"><%= link_to "Edit", edit_shoe_path, class:"added-link-edit"%></h5>
+        </div>
+        <div class="delete-container">
+          <h5><%= link_to "Delete",
+                    shoe_path(@shoe),
+                    class:"added-link-delete",
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></h5>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="show-location-brand-links">
-    <div class="d-flex" id="show-location-brand">
-      <h4 class="show-location"><%= @shoe.location %></h4>
-      <h4 class="show-brand"><%= @shoe.brand %></h4>
-    </div>
+
     <div class="d-flex justify-content-around links center">
-      <button type="button" class="btn btn-outline-dark"><%= link_to "Edit", edit_shoe_path, class:"added-link"%></button>
-      <button type="button" class="btn btn-outline-dark"><%= link_to "Rent", "#", class:"added-link"%></button>
-      <button type="button" class="btn btn-outline-dark"><%= link_to "Delete",
+
+      <% if policy(@shoe).edit? %>
+        <button type="button" class="btn btn-outline-dark"><%= link_to "Edit", edit_shoe_path, class:"added-link"%></button>
+      <% end %>
+      <% if @shoe.user != current_user %>
+        <button type="button" class="btn btn-outline-dark"><%= link_to "Rent", "#", class:"added-link"%></button>
+      <% end %>
+      <% if policy(@shoe).destroy? %>
+        <button type="button" class="btn btn-outline-dark"><%= link_to "Delete",
                   shoe_path(@shoe),
                   class:"added-link",
                   method: :delete,
                   data: { confirm: "Are you sure?" } %></button>
+      <% end %>
       <button type="button" class="btn btn-outline-dark"><%= link_to "Back to all shoes", shoes_path, class:"added-link" %></button>
 
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
 
 
   <%  if current_user %>
@@ -81,5 +99,32 @@
       <% end%>
     <% end%>
 
+  <div class="manage-and-bookings">
+    <div class="bookings center">
+      <h3> Make your booking </h3>
+        <%= simple_form_for [ @shoe, @booking ] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit "Confirm", class: "btn btn-dark dark" %>
+      <% end %>
+    </div>
+    <div class="manage-bookings center">
+      <h3> Manage your bookings </h3>
+        <% if @shoe.bookings.empty? %>
+          <%= "no bookings" %>
+          <% else %>
+            <% @shoe.bookings.each do | booking |%>
+              <li class="list-group-item">
+                booked from: <%= booking.start_date %> until <%= booking.end_date %>
+                <%= link_to "Remove",
+                                booking_path(booking),
+                                method: :delete,
+                                data: { confirm: "Are you sure?" } %>
+              </li>
+          <% end%>
+        <% end%>
+    </div>
+    </div>
+  </div>
 </div>
 

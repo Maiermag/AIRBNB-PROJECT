@@ -1,14 +1,13 @@
 .grid-container {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 3fr 2fr;
   grid-gap:0px;
 }
 
 .show-card-container {
   width: 390px;
-  height: 480px;
-  margin: 30px auto;
+  // margin: 30px auto;
   background-color: white;
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);

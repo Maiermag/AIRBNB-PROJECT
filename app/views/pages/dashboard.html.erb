@@ -1,9 +1,10 @@
 
 <div class="container">
-  <h1 class="dashboard-header"> My dashboard </h1>
+  <h1 class="dashboard-header"> ✨ Your dashboard ✨ </h1>
 
-    <h2> My offers: </h2>
+    <h2> Your 👠's: </h2>
 
+    <div class="shoe-cards">
       <% if current_user.shoes.empty? %>
         <%= "no offers" %>
         <% else %>
@@ -11,8 +12,10 @@
               <%= render 'shared/card', item: shoe %>
         <% end %>
       <% end %>
+    </div>
 
-    <h2> Booking requests: </h2>
+    <div class="booking-request">
+    <h2> 📅 - requests (💸): </h2>
 
      <% if current_user.bookings.empty? %>
         <%= "no requests" %>
@@ -29,8 +32,10 @@
           <% end %>
         <% end %>
       <% end %>
+    </div>
 
-    <h2> Shoes I booked: </h2>
+    <div class="booking-request">
+    <h2> 👞's' I booked: </h2>
 
      <% if current_user.bookings.empty? %>
         <%= "no bookings" %>
@@ -45,5 +50,6 @@
           </li>
         <% end %>
       <% end %>
+    </div>
 
 </div>

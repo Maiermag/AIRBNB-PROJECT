@@ -21,13 +21,13 @@
     <div class="d-flex justify-content-around links center">
       <button type="button" class="btn btn-outline-dark"><%= link_to "Edit", edit_shoe_path, class:"added-link"%></button>
       <button type="button" class="btn btn-outline-dark"><%= link_to "Rent", "#", class:"added-link"%></button>
-      <button type="button" class="btn btn-outline-dark"><%= link_to "Delete", 
-                  shoe_path(@shoe), 
+      <button type="button" class="btn btn-outline-dark"><%= link_to "Delete",
+                  shoe_path(@shoe),
                   class:"added-link",
                   method: :delete,
                   data: { confirm: "Are you sure?" } %></button>
       <button type="button" class="btn btn-outline-dark"><%= link_to "Back to all shoes", shoes_path, class:"added-link" %></button>
-      
+
     </div>
   </div>
 </div>
@@ -41,13 +41,16 @@
 
 
   <%  if current_user %>
-        <div class="d-flex flex-column justify-content-center align-items-center" style="width: 400px; margin: 0 auto;">
+     <div class="container" style="">
           <%= simple_form_for [@shoe, @booking] do |f| %>
-            <%= f.input :start_date, as: :string, label: "Start Date", input_html: { id: "start_date" } %>
-            <%= f.input :end_date, as: :string, label: "End Date", input_html: { id: "end_date" } %>
+          <div class="d-flex booking-range">
+            <%= f.input :start_date, as: :string, label: "Start Date", input_html: { class: "date-box", id: "start_date" } %>
+            <%= f.input :end_date, as: :string, label: "End Date", input_html: { class: "date-box", id: "end_date" } %>
             <%= f.button :submit, "Book", class: "btn btn-flat datepicker-btn", style: 'width:100%' %>
+          </div>
           <% end %>
         </div>
+      </div>
   <% end %>
 
 

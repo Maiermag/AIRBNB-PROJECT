@@ -7,7 +7,7 @@ const initFlatpickr = () => {
     altInput: true,
     mode: "range",
     minDate: "today",
-    position: "auto center",
+    position: "left",
     inline: true,
     "plugins": [new rangePlugin({ input: "#end_date"})]
   });
